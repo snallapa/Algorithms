@@ -8,16 +8,10 @@ def swap(unsortedList, j, k):
 def partition (unsorted, low, high):
 	pivot = low
 	low = low + 1 
-	if low == high:
-		if unsorted[pivot] > unsorted[high]:
-			swap(unsorted, pivot, high)
-			return high
-		else:
-			return high
-	while high > low:
-		while unsorted[low] < unsorted[pivot] and high > low:
+	while high >= low:
+		while low < len(unsorted) and unsorted[low] < unsorted[pivot]:
 			low = low + 1
-		while unsorted[high] > unsorted[pivot]:
+		while unsorted[high] > unsorted[pivot] and high >= 0:
 			high = high - 1
 		if (low < high):
 			swap(unsorted, low, high)
